@@ -27,11 +27,11 @@ Drop a YouTube URL, and I’ll handle the rest:
 
 ### Snapshots Added
 
-![Image1](/VideoRAG-System/img/2.png)
+![](/VideoRAG-System/img/2.png)
 
-![Image2](/VideoRAG-System/img/3.png)
+![](/VideoRAG-System/img/3.png)
 
-![Image3](/VideoRAG-System/img/4.png)
+![](/VideoRAG-System/img/4.png)
 
 ### WIP 🚧
 
