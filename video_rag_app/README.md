@@ -23,6 +23,16 @@ Drop a YouTube URL, and I’ll handle the rest:
 
 ---
 
+### Loom Recording - [LoomVideo](https://www.loom.com/share/c0b4aa38a47e456288c9876d7b260b93?sid=0ccaa690-f8b6-4a34-9537-fbc22d1ef9e9)
+
+### Snapshots Added
+
+![Image1](/Users/manish-luci/Desktop/video_qa/VideoRAG-System/img/2.png)
+
+![Image2](/Users/manish-luci/Desktop/video_qa/VideoRAG-System/img/3.png)
+
+![Image3](/Users/manish-luci/Desktop/video_qa/VideoRAG-System/img/4.png)
+
 ### WIP 🚧
 
 - [ ] To trim the video based on the timestamp provided in response.
