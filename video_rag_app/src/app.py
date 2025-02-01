@@ -53,7 +53,7 @@ def main():
 
     st = time.time()
 
-    logger.info("Starting Video RAG System application")
+    logger.info("Starting Video RAG System application + Builtin Voice Mode Activated")
     st.set_page_config(page_title="Video RAG System", layout="wide", page_icon="🎥")
     st.markdown(STYLE, unsafe_allow_html=True)
 
