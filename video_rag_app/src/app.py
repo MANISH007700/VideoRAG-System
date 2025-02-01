@@ -56,19 +56,36 @@ def load_config():
         logger.error(f"Error parsing YAML configuration: {str(e)}")
         raise
 
-
 def init_session_state():
+    """
+    Initialize the Streamlit session state with required keys and default values.
+    This ensures all necessary variables are available throughout the app's lifecycle.
+    
+    The following keys are initialized if not already present:
+    - video_url: Stores the URL of the uploaded/processed video
+    - index: Stores the vector index created from video frames and captions
+    - retriever: Stores the VideoRetriever instance for querying the index
+    - video_id: Stores unique identifier for the processed video
+    - inference_processor: Stores the Gemini model interface
+    - gemini_key: Stores the user's Gemini API key
+    """
+    logger.debug("Initializing session state variables")
+    
+    # Define required session state keys and their default values
     required_keys = {
-        "video_url": None,
-        "index": None,
-        "retriever": None,
-        "video_id": None,
-        "inference_processor": None,
-        "gemini_key": None,
+        "video_url": None,  # URL of the video being processed
+        "index": None,      # Vector index for search
+        "retriever": None,  # Video retrieval interface
+        "video_id": None,   # Unique video identifier
+        "inference_processor": None,  # Gemini model interface
+        "gemini_key": None, # API key for Gemini
     }
-    for key, value in required_keys.items():
+
+    # Initialize any missing keys in session state
+    for key, default_value in required_keys.items():
         if key not in st.session_state:
-            st.session_state[key] = value
+            logger.debug(f"Initializing session state key: {key}")
+            st.session_state[key] = default_value
 
 
 def main():
