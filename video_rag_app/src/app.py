@@ -31,8 +31,30 @@ STYLE = """
 
 
 def load_config():
-    with open("config/config.yaml", "r") as f:
-        return yaml.safe_load(f)
+    """
+    Load and parse the application configuration from the YAML file.
+
+    Returns:
+        dict: Configuration dictionary containing all settings from config.yaml
+
+    Raises:
+        FileNotFoundError: If config.yaml is not found in the config directory
+        yaml.YAMLError: If the YAML file is malformed or cannot be parsed
+    """
+    config_path = "config/config.yaml"
+    logger.info(f"Loading configuration from {config_path}")
+
+    try:
+        with open(config_path, "r") as config_file:
+            config = yaml.safe_load(config_file)
+            logger.debug(f"Successfully loaded configuration: {config}")
+            return config
+    except FileNotFoundError:
+        logger.error(f"Configuration file not found at {config_path}")
+        raise
+    except yaml.YAMLError as e:
+        logger.error(f"Error parsing YAML configuration: {str(e)}")
+        raise
 
 
 def init_session_state():
