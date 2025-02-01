@@ -1,5 +1,6 @@
 import logging
 import os
+import time
 from pathlib import Path
 
 import streamlit as st
@@ -49,6 +50,9 @@ def init_session_state():
 
 
 def main():
+
+    st = time.time()
+
     logger.info("Starting Video RAG System application")
     st.set_page_config(page_title="Video RAG System", layout="wide", page_icon="🎥")
     st.markdown(STYLE, unsafe_allow_html=True)
@@ -261,6 +265,9 @@ def main():
             except Exception as e:
                 logger.error(f"Error processing query: {str(e)}", exc_info=True)
                 st.error(f"❌ Error processing query: {str(e)}")
+
+    et = time.time()
+    print("Time taken - ", round(et - st, 3))
 
 
 if __name__ == "__main__":
