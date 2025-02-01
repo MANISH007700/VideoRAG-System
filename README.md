@@ -36,3 +36,7 @@ Drop a YouTube URL, and I’ll handle the rest:
 ### WIP 🚧
 
 - [ ] To trim the video based on the timestamp provided in response.
+
+Thanks
+
+- Manish Sharma
