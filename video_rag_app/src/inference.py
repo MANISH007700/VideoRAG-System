@@ -52,18 +52,18 @@ class InferenceProcessor:
 
     def _extract_timestamps(self, text: str) -> List[str]:
         """Extract timestamps from the caption text using improved regex pattern matching.
-        
+
         This method processes caption text that contains timestamps in the format:
         <s>START_TIME: caption text :END_TIME<e>
-        
+
         Args:
             text (str): The caption text containing timestamp markers
-            
+
         Returns:
-            List[str]: A list of timestamp strings, where each timestamp is the 
+            List[str]: A list of timestamp strings, where each timestamp is the
                       midpoint between the start and end times of a caption segment.
                       The timestamps are returned as strings to preserve decimal precision.
-        
+
         Example:
             Input text: "<s>10.5: Some caption text :12.5<e>"
             Returns: ["11.5"] (average of 10.5 and 12.5)
@@ -78,10 +78,10 @@ class InferenceProcessor:
         # \s*([\d.]+)\s* - Capture group for decimal numbers (end time)
         # <e> - Match closing tag
         timestamp_pattern = r"<s>\s*([\d.]+)\s*:.+?:\s*([\d.]+)\s*<e>"
-        
+
         # Find all matching timestamp pairs in the text
         matches = re.findall(timestamp_pattern, text)
-        
+
         # Calculate midpoint timestamps and convert to strings
         # This gives us a more accurate representation of when the caption appears
         return [str((float(start) + float(end)) / 2) for start, end in matches]
